@@ -1,4 +1,4 @@
-# DynoForce_BLE
+# dynoforce-ble
 
 Python BLE library for **DynoForce** fitness devices.
 

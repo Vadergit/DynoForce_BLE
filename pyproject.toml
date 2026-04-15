@@ -1,0 +1,70 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "DynoForce_BLE"
+version = "0.1.0"
+description = "Python BLE library for DynoForce fitness devices (DynoGrip, DynoPull, DynoLift, UnityCounter)"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [
+    { name = "DynoForce", email = "info@dynoforce.com" },
+]
+keywords = ["ble", "bluetooth", "fitness", "force-sensor", "dynoforce", "grip-strength"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: MacOS",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering",
+    "Typing :: Typed",
+]
+dependencies = [
+    "bleak>=0.21.0",
+]
+
+[project.optional-dependencies]
+gui = [
+    "matplotlib>=3.7",
+    "numpy>=1.24",
+]
+dev = [
+    "pytest>=7.0",
+    "pytest-asyncio>=0.21",
+    "ruff>=0.1.0",
+    "mypy>=1.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/Vadergit/DynoForce_BLE"
+Repository = "https://github.com/Vadergit/DynoForce_BLE"
+Issues = "https://github.com/Vadergit/DynoForce_BLE/issues"
+
+[tool.hatch.build.targets.sdist]
+include = ["src/dynoforce_ble"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/dynoforce_ble"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
